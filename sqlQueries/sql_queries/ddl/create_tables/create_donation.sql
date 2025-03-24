@@ -5,7 +5,7 @@ CREATE TABLE DONATION (
     user_id                NUMBER NOT NULL,
     blood_type_id          NUMBER NOT NULL,
     quantity               NUMBER NOT NULL,
-    date                   DATE NOT NULL,
+    donation_date          DATE NOT NULL,
     status                 VARCHAR2(20) NOT NULL,
     hospital_patient_id    NUMBER,
  
