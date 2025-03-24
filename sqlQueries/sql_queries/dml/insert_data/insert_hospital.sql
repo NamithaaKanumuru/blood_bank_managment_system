@@ -1,0 +1,42 @@
+BEGIN
+    BEGIN
+        INSERT INTO HOSPITAL (
+            HOSPITAL_ID, LOCATION_ID, HOSPITAL_TYPE, CONTACT_NUMBER, HOSPITAL_NAME
+        ) VALUES (
+            201, 301, 'Multi-Specialty', '9876543210', 'Apollo Hospital'
+        );
+    EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
+ 
+    BEGIN
+        INSERT INTO HOSPITAL (
+            HOSPITAL_ID, LOCATION_ID, HOSPITAL_TYPE, CONTACT_NUMBER, HOSPITAL_NAME
+        ) VALUES (
+            202, 302, 'General', '9123456780', 'Fortis HealthCare'
+        );
+    EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
+ 
+    BEGIN
+        INSERT INTO HOSPITAL (
+            HOSPITAL_ID, LOCATION_ID, HOSPITAL_TYPE, CONTACT_NUMBER, HOSPITAL_NAME
+        ) VALUES (
+            203, 303, 'Emergency Care', '9988776655', 'Max Emergency Center'
+        );
+    EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
+ 
+    BEGIN
+        INSERT INTO HOSPITAL (
+            HOSPITAL_ID, LOCATION_ID, HOSPITAL_TYPE, CONTACT_NUMBER, HOSPITAL_NAME
+        ) VALUES (
+            204, 304, 'Specialty', '9001122334', 'Medanta Specialty Clinic'
+        );
+    EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
+ 
+    BEGIN
+        INSERT INTO HOSPITAL (
+            HOSPITAL_ID, LOCATION_ID, HOSPITAL_TYPE, CONTACT_NUMBER, HOSPITAL_NAME
+        ) VALUES (
+            205, 305, 'Primary Care', '9990011223', 'Narayana Health'
+        );
+    EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
+END;
+/
