@@ -51,7 +51,7 @@ The project is organized into a series of scripts for defining (DDL) and manipul
 Start by setting up the database structure using the main DDL script. This script will create all necessary tables, indexes, and other objects.
 
 ```sql
-{path_to_files}/blood_bank_managment_system\sqlQueries\sql_queries\ddl\create_tables\create_main.sql
+{path_to_repo_files}/blood_bank_managment_system\sqlQueries\sql_queries\ddl\create_tables\create_main.sql
 ```
 
 - **Note**: We have handled the case of dropping the table if it already exists. The DDL script includes DROP statements to remove existing objects if necessary.
@@ -61,7 +61,7 @@ Start by setting up the database structure using the main DDL script. This scrip
 Run the **grant.sql** script to create roles, define users, and assign permissions:
 
 ```sql
-{path_to_files}/blood_bank_managment_system\sqlQueries\sql_queries\grants\grant_access.sql
+{path_to_repo_files}/blood_bank_managment_system\sqlQueries\sql_queries\grants\grant_access.sql
 ```
 
 #### Roles and Permissions:
@@ -73,7 +73,7 @@ Run the **grant.sql** script to create roles, define users, and assign permissio
 Once the database structure is in place, populate the tables using the main DML script.
 
 ```sql
-{path_to_files}/blood_bank_managment_system\sqlQueries\sql_queries\dml\insert_data\insert_main.sql
+{path_to_repo_files}/blood_bank_managment_system\sqlQueries\sql_queries\dml\insert_data\insert_main.sql
 ```
 
 - **Note**: This script inserts initial data, including **sample donor records, hospital data, blood requests, and inventory details** for testing.
@@ -86,7 +86,7 @@ Once the database structure is in place, populate the tables using the main DML 
 Views are created separately after the DDL and DML steps are complete. To create the views, run:
 
 ```sql
-{path_to_files}/C:\Users\hp\Desktop\DMDD\Project\blood_bank_managment_system\sqlQueries\sql_queries\views\views_main.sql
+{path_to_repo_files}/blood_bank_managment_system\sqlQueries\sql_queries\views\views_main.sql
 ```
 
 - **Note**: This will create all required views, with individual view scripts also available.
@@ -105,24 +105,23 @@ You have read-only access to this repository, which means:
 
 ## How and What to Run
 
-1. **Create User**: Run the `/main.sql` file to set up users and grant access.
-2. **Initialize Database Structure**: Run the main DDL script to create all tables and objects.
-3. **Grant Access**: Run the grant access SQL file:
+1. **Initialize Database Structure**: Run the main DDL script to create all tables and objects.
+2. **Grant Access**: Run the grant access SQL file:
     ```sql
     /sqlQueries/sql_queries/grants/grant_access.sql
     ```
-4. **Insert Sample Data**: Run the main DML script to populate tables.
-5. **Create Views**: Finally, run the `views_main.sql` script to set up views.
+3. **Insert Sample Data**: Run the main DML script to populate tables.
+4. **Create Views**: Finally, run the `views_main.sql` script to set up views.
 
 ---
 
 ## Files to Run
 
-1. Run /sqlQueries/sql_queries/ddl/create_tables/create_ddl_main.sql
+1. Run /sqlQueries/sql_queries/ddl/create_tables/create_main.sql
 
 2. Run /sqlQueries/sql_queries/grants/grant_access.sql
 
-3. Run /sqlQueries/sql_queries/dml/insert_data/insert_dml_main.sql
+3. Run /sqlQueries/sql_queries/dml/insert_data/insert_main.sql
 
 4. Run /sqlQueries/sql_queries/views/views_main.sql
 
