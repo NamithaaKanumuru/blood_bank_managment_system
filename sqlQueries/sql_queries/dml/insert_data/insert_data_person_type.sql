@@ -1,3 +1,4 @@
+-- Consistent Person Type Insertions
 begin
    begin
       insert into person_type values ( 1,

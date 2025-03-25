@@ -1,3 +1,4 @@
+-- Consistent Blood Type Insertions
 begin
    begin
       insert into blood_type values ( 1,

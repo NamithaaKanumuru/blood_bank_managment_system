@@ -1,121 +1,101 @@
--- Consistent Donation Insertions
+-- Consistent User Insertions with Synchronized Location, Blood Type
 begin
-    -- Donations for USER_ID 1001
    begin
-      insert into donation values ( 1,
-                                    1,
-                                    1001,
-                                    1,
-                                    500,
-                                    to_date('2019-03-10','YYYY-MM-DD'),
-                                    'Consumed',
-                                    null );
+      insert into bbms_user values ( 1001,
+                                     101,
+                                     3,
+                                     null,
+                                     'Rahul Sharma',
+                                     'rahul.sharma@example.com',
+                                     '9876543210',
+                                     'Male',
+                                     to_date('1990-05-20','YYYY-MM-DD'),
+                                     1 );
+   exception
+      when dup_val_on_index then
+         null;
+   end;
+
+   begin
+      insert into bbms_user values ( 1002,
+                                     102,
+                                     3,
+                                     null,
+                                     'Anita Verma',
+                                     'anita.verma@example.com',
+                                     '9123456780',
+                                     'Female',
+                                     to_date('1985-08-12','YYYY-MM-DD'),
+                                     2 );
+   exception
+      when dup_val_on_index then
+         null;
+   end;
+   begin
+      insert into bbms_user values ( 1016,
+                                     106,
+                                     3,
+                                     null,
+                                     'Arjun Mehra',
+                                     'arjun.mehra@example.com',
+                                     '9988771122',
+                                     'Male',
+                                     to_date('1990-02-18','YYYY-MM-DD'),
+                                     1 );
 
    exception
       when dup_val_on_index then
          null;
    end;
    begin
-      insert into donation values ( 2,
-                                    1,
-                                    1001,
-                                    1,
-                                    500,
-                                    to_date('2020-05-15','YYYY-MM-DD'),
-                                    'Consumed',
-                                    null );
+      insert into bbms_user values ( 1017,
+                                     107,
+                                     3,
+                                     null,
+                                     'Meena Kaur',
+                                     'meena.kaur@example.com',
+                                     '9877123456',
+                                     'Female',
+                                     to_date('1988-06-23','YYYY-MM-DD'),
+                                     2 );
 
    exception
       when dup_val_on_index then
          null;
    end;
    begin
-      insert into donation values ( 3,
-                                    2,
-                                    1001,
-                                    1,
-                                    500,
-                                    to_date('2021-07-21','YYYY-MM-DD'),
-                                    'Available',
-                                    null );
-
-   exception
-      when dup_val_on_index then
-         null;
-   end;
- 
-    -- Donations for USER_ID 1002
-   begin
-      insert into donation values ( 6,
-                                    1,
-                                    1002,
-                                    2,
-                                    500,
-                                    to_date('2020-06-12','YYYY-MM-DD'),
-                                    'Consumed',
-                                    null );
+      insert into bbms_user values ( 1018,
+                                     108,
+                                     3,
+                                     null,
+                                     'Tarun Gill',
+                                     'tarun.gill@example.com',
+                                     '9776543210',
+                                     'Male',
+                                     to_date('1992-01-30','YYYY-MM-DD'),
+                                     3 );
 
    exception
       when dup_val_on_index then
          null;
    end;
    begin
-      insert into donation values ( 20,
-                                    6,
-                                    1016,
-                                    1,
-                                    500,
-                                    to_date('2023-10-01','YYYY-MM-DD'),
-                                    'Available',
-                                    null );
-
-   exception
-      when dup_val_on_index then
-         null;
-   end;
-   begin
-      insert into donation values ( 21,
-                                    7,
-                                    1017,
-                                    2,
-                                    500,
-                                    to_date('2023-09-15','YYYY-MM-DD'),
-                                    'Consumed',
-                                    null );
-
-   exception
-      when dup_val_on_index then
-         null;
-   end;
-   begin
-      insert into donation values ( 22,
-                                    8,
-                                    1018,
-                                    5,
-                                    500,
-                                    to_date('2024-01-05','YYYY-MM-DD'),
-                                    'Available',
-                                    null );
-
-   exception
-      when dup_val_on_index then
-         null;
-   end;
-   begin
-      insert into donation values ( 23,
-                                    6,
-                                    1019,
-                                    4,
-                                    500,
-                                    to_date('2023-11-30','YYYY-MM-DD'),
-                                    'Expired',
-                                    null );
+      insert into bbms_user values ( 1019,
+                                     109,
+                                     3,
+                                     null,
+                                     'Neha Dsouza',
+                                     'neha.dsouza@example.com',
+                                     '9345678901',
+                                     'Female',
+                                     to_date('1993-12-12','YYYY-MM-DD'),
+                                     4 );
 
    exception
       when dup_val_on_index then
          null;
    end;
  
-    -- Subsequent donations with consistent user and blood bank references
+    -- Similar pattern for other users, ensuring consistent IDs and references
 end;
 /
