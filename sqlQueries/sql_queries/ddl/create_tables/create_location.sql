@@ -1,10 +1,10 @@
 -- Create LOCATION Table
-CREATE TABLE LOCATION (
-    location_id NUMBER PRIMARY KEY,
-    address     VARCHAR2(100) NOT NULL,
-    city        VARCHAR2(50) NOT NULL,
-    state       VARCHAR2(50) NOT NULL,
-    pincode     VARCHAR2(10) NOT NULL,
-    latitude    FLOAT,
-    longitude   FLOAT
+create table location (
+   location_id number primary key,
+   address     varchar2(100) not null,
+   city        varchar2(50) not null,
+   state       varchar2(50) not null,
+   pincode     varchar2(10) not null,
+   latitude    float,
+   longitude   float
 );

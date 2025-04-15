@@ -1,23 +1,20 @@
 -- Create BLOOD_REQUEST Table
-CREATE TABLE BLOOD_REQUEST (
-    request_id           NUMBER PRIMARY KEY,
-    hospital_id          NUMBER NOT NULL,
-    hospital_patient_id  NUMBER NOT NULL,
-    blood_type_id        NUMBER NOT NULL,
-    quantity_requested   NUMBER NOT NULL,
-    request_date         DATE NOT NULL,
-    status               VARCHAR2(20) NOT NULL,
+create table blood_request (
+   request_id          number primary key,
+   hospital_id         number not null,
+   hospital_patient_id number not null,
+   blood_type_id       number not null,
+   quantity_requested  number not null,
+   request_date        date not null,
+   status              varchar2(20) not null,
  
     -- Foreign Keys
-    CONSTRAINT blood_request_hospital_fk 
-        FOREIGN KEY (hospital_id) 
-        REFERENCES hospital(hospital_id),
- 
-    CONSTRAINT blood_request_patient_fk 
-        FOREIGN KEY (hospital_patient_id) 
-        REFERENCES hospital_patient(hospital_patient_id),
- 
-    CONSTRAINT blood_request_blood_type_fk 
-        FOREIGN KEY (blood_type_id) 
-        REFERENCES blood_type(blood_type_id)
+   constraint blood_request_hospital_fk foreign key ( hospital_id )
+      references hospital ( hospital_id ),
+   constraint blood_request_patient_fk foreign key ( hospital_patient_id )
+      references hospital_patient ( hospital_patient_id ),
+   constraint blood_request_blood_type_fk foreign key ( blood_type_id )
+      references blood_type ( blood_type_id )
 );
+
+create sequence bbms_blood_req_seq start with 1 increment by 1;

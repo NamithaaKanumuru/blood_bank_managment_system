@@ -1,30 +1,25 @@
 -- Create BBMS_USER Table
-CREATE TABLE BBMS_USER (
-    user_id NUMBER PRIMARY KEY,
-    location_id NUMBER NOT NULL,
-    person_type_id NUMBER NOT NULL,
-    hospital_id NUMBER, -- Nullable, only for doctors or staff
-    name VARCHAR2(255) NOT NULL,
-    email VARCHAR2(100) NOT NULL UNIQUE,
-    phone VARCHAR2(15) NOT NULL,
-    gender VARCHAR2(10) NOT NULL,
-    dob DATE NOT NULL,
-    blood_type_id NUMBER NOT NULL,
+create table bbms_user (
+   user_id        number primary key,
+   location_id    number not null,
+   person_type_id number not null,
+   hospital_id    number, -- Nullable, only for doctors or staff
+   name           varchar2(255) not null,
+   email          varchar2(100) not null unique,
+   phone          varchar2(15) not null,
+   gender         varchar2(10) not null,
+   dob            date not null,
+   blood_type_id  number not null,
  
     -- Foreign Keys
-    CONSTRAINT bbms_user_location_fk 
-        FOREIGN KEY (location_id) 
-        REFERENCES location(location_id),
- 
-    CONSTRAINT bbms_user_person_type_fk 
-        FOREIGN KEY (person_type_id) 
-        REFERENCES person_type(person_type_id),
- 
-    CONSTRAINT bbms_user_hospital_fk 
-        FOREIGN KEY (hospital_id) 
-        REFERENCES hospital(hospital_id),
- 
-    CONSTRAINT bbms_user_blood_type_fk 
-        FOREIGN KEY (blood_type_id) 
-        REFERENCES blood_type(blood_type_id)
+   constraint bbms_user_location_fk foreign key ( location_id )
+      references location ( location_id ),
+   constraint bbms_user_person_type_fk foreign key ( person_type_id )
+      references person_type ( person_type_id ),
+   constraint bbms_user_hospital_fk foreign key ( hospital_id )
+      references hospital ( hospital_id ),
+   constraint bbms_user_blood_type_fk foreign key ( blood_type_id )
+      references blood_type ( blood_type_id )
 );
+
+create sequence bbms_user_seq start with 1 increment by 1;
