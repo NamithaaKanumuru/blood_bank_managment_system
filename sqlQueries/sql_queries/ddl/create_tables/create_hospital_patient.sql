@@ -12,3 +12,5 @@ create table hospital_patient (
    constraint hospital_patient_user_fk foreign key ( user_id )
       references bbms_user ( user_id )
 );
+
+create sequence bbms_hospital_patient_seq start with 1 increment by 1;

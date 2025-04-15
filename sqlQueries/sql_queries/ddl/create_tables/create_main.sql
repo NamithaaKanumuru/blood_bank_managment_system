@@ -1,30 +1,53 @@
-BEGIN
-   FOR t IN (
-      SELECT table_name FROM (
-         SELECT 'BLOOD_REQUEST' AS table_name FROM DUAL UNION ALL
-         SELECT 'DONATION' FROM DUAL UNION ALL
-         SELECT 'HOSPITAL_PATIENT' FROM DUAL UNION ALL
-         SELECT 'BBMS_USER' FROM DUAL UNION ALL
-         SELECT 'BLOOD_BANK' FROM DUAL UNION ALL
-         SELECT 'HOSPITAL' FROM DUAL UNION ALL
-         SELECT 'BLOOD_TYPE' FROM DUAL UNION ALL
-         SELECT 'PERSON_TYPE' FROM DUAL UNION ALL
-         SELECT 'LOCATION' FROM DUAL
+begin
+   for t in (
+      select table_name
+        from (
+         select 'BLOOD_REQUEST' as table_name
+           from dual
+         union all
+         select 'DONATION'
+           from dual
+         union all
+         select 'HOSPITAL_PATIENT'
+           from dual
+         union all
+         select 'BBMS_USER'
+           from dual
+         union all
+         select 'BLOOD_BANK'
+           from dual
+         union all
+         select 'HOSPITAL'
+           from dual
+         union all
+         select 'BLOOD_TYPE'
+           from dual
+         union all
+         select 'PERSON_TYPE'
+           from dual
+         union all
+         select 'LOCATION'
+           from dual
       )
-   ) LOOP
-      BEGIN
-         EXECUTE IMMEDIATE 'DROP TABLE ' || t.table_name || ' CASCADE CONSTRAINTS';
-         DBMS_OUTPUT.PUT_LINE('Dropped table: ' || t.table_name);
-      EXCEPTION
-         WHEN OTHERS THEN
-            IF SQLCODE = -942 THEN -- ORA-00942: table or view does not exist
-               DBMS_OUTPUT.PUT_LINE('Table does not exist: ' || t.table_name);
-            ELSE
-               DBMS_OUTPUT.PUT_LINE('Error dropping table ' || t.table_name || ': ' || SQLERRM);
-            END IF;
-      END;
-   END LOOP;
-END;
+   ) loop
+      begin
+         execute immediate 'DROP TABLE '
+                           || t.table_name
+                           || ' CASCADE CONSTRAINTS';
+         dbms_output.put_line('Dropped table: ' || t.table_name);
+      exception
+         when others then
+            if sqlcode = -942 then -- ORA-00942: table or view does not exist
+               dbms_output.put_line('Table does not exist: ' || t.table_name);
+            else
+               dbms_output.put_line('Error dropping table '
+                                    || t.table_name
+                                    || ': '
+                                    || sqlerrm);
+            end if;
+      end;
+   end loop;
+end;
 /
 
 

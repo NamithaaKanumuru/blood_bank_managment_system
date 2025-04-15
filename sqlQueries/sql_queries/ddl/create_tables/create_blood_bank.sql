@@ -1,12 +1,11 @@
 -- Create BLOOD_BANK Table
-CREATE TABLE BLOOD_BANK (
-    blood_bank_id     NUMBER PRIMARY KEY,
-    location_id       NUMBER NOT NULL,
-    capacity          NUMBER NOT NULL,
-    blood_bank_name   VARCHAR2(100) NOT NULL,
+create table blood_bank (
+   blood_bank_id   number primary key,
+   location_id     number not null,
+   capacity        number not null,
+   blood_bank_name varchar2(100) not null,
  
     -- Foreign Key
-    CONSTRAINT blood_bank_location_fk 
-        FOREIGN KEY (location_id) 
-        REFERENCES location(location_id)
+   constraint blood_bank_location_fk foreign key ( location_id )
+      references location ( location_id )
 );

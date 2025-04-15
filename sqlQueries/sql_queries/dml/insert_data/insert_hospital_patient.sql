@@ -1,11 +1,50 @@
 -- Consistent Hospital Patient Insertions
-BEGIN
-    BEGIN INSERT INTO HOSPITAL_PATIENT VALUES (501, 201, 1001, TO_DATE('2023-11-01', 'YYYY-MM-DD'), TO_DATE('2023-11-10', 'YYYY-MM-DD')); EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
-    BEGIN INSERT INTO HOSPITAL_PATIENT VALUES (502, 202, 1002, TO_DATE('2023-12-05', 'YYYY-MM-DD'), TO_DATE('2023-12-12', 'YYYY-MM-DD')); EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
-    BEGIN INSERT INTO HOSPITAL_PATIENT VALUES (506, 206, 1016, TO_DATE('2023-11-20', 'YYYY-MM-DD'), TO_DATE('2023-11-25', 'YYYY-MM-DD')); EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
-    BEGIN INSERT INTO HOSPITAL_PATIENT VALUES (507, 207, 1017, TO_DATE('2024-01-02', 'YYYY-MM-DD'), TO_DATE('2024-01-10', 'YYYY-MM-DD')); EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
-    BEGIN INSERT INTO HOSPITAL_PATIENT VALUES (508, 208, 1018, TO_DATE('2024-02-15', 'YYYY-MM-DD'), TO_DATE('2024-02-20', 'YYYY-MM-DD')); EXCEPTION WHEN DUP_VAL_ON_INDEX THEN NULL; END;
+begin
+   begin
+      insert into hospital_patient values ( 1,
+                                            201,
+                                            2,
+                                            to_date('2023-11-01','YYYY-MM-DD'),
+                                            to_date('2023-11-10','YYYY-MM-DD') );
+
+   exception
+      when dup_val_on_index then
+         null;
+   end;
+   begin
+      insert into hospital_patient values ( 2,
+                                            202,
+                                            3,
+                                            to_date('2023-12-05','YYYY-MM-DD'),
+                                            to_date('2023-12-12','YYYY-MM-DD') );
+
+   exception
+      when dup_val_on_index then
+         null;
+   end;
+   begin
+      insert into hospital_patient values ( 3,
+                                            203,
+                                            4,
+                                            to_date('2023-11-20','YYYY-MM-DD'),
+                                            to_date('2023-11-25','YYYY-MM-DD') );
+
+   exception
+      when dup_val_on_index then
+         null;
+   end;
+   begin
+      insert into hospital_patient values ( 4,
+                                            204,
+                                            5,
+                                            to_date('2024-01-02','YYYY-MM-DD'),
+                                            to_date('2024-01-10','YYYY-MM-DD') );
+
+   exception
+      when dup_val_on_index then
+         null;
+   end;
  
     -- Ensure consistent user and hospital references
-END;
+end;
 /
