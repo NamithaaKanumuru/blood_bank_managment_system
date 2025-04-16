@@ -1,3 +1,5 @@
+DROP TRIGGER trg_validate_patient_dates;
+
 CREATE OR REPLACE TRIGGER trg_validate_patient_dates 
     BEFORE INSERT OR UPDATE ON HOSPITAL_PATIENT 
     FOR EACH ROW BEGIN 

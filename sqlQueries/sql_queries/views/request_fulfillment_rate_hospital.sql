@@ -4,11 +4,11 @@ SELECT
     H.Hospital_Name,
     COUNT(CASE WHEN BR.Status = 'Fulfilled' THEN 1 END) AS Fulfilled_Requests,
     COUNT(BR.Request_ID) AS Total_Requests,
-    ROUND(
+    NVL(ROUND(
         COUNT(CASE WHEN BR.Status = 'Fulfilled' THEN 1 END) / 
         NULLIF(COUNT(BR.Request_ID), 0) * 100, 
         2
-    ) AS Fulfillment_Percentage
+    ),0) AS Fulfillment_Percentage
 FROM 
     Hospital H
 LEFT JOIN Blood_Request BR ON H.Hospital_ID = BR.Hospital_ID

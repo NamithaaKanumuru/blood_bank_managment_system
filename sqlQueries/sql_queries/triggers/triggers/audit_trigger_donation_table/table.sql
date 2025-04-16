@@ -1,3 +1,7 @@
+DROP TRIGGER trg_log_donation_insert;
+DROP TABLE donation_audit;
+
+
 CREATE TABLE DONATION_AUDIT 
     (audit_id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, donation_id NUMBER, user_id NUMBER,
      blood_bank_id NUMBER, blood_type_id NUMBER, donation_date DATE, inserted_by VARCHAR2(100), 

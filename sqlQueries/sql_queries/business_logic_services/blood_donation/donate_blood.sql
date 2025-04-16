@@ -29,11 +29,11 @@ BEGIN
         donation_date,
         status
     ) VALUES (
-        101,
+        bbms_donation_seq.nextval,
         p_blood_bank_id,
         p_user_id,
         p_blood_type_id,
-        1,              -- Assuming 1 unit of blood donated
+        1,              
         SYSDATE,
         'Available'
     );

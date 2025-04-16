@@ -50,6 +50,10 @@ begin
 end;
 /
 
+DROP SEQUENCE bbms_user_seq;
+DROP SEQUENCE bbms_hospital_patient_seq;
+DROP SEQUENCE bbms_blood_req_seq;
+DROP SEQUENCE bbms_donation_seq;
 
 @create_location.sql
 @create_person_type.sql
