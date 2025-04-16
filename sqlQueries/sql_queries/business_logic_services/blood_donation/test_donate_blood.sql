@@ -2,13 +2,13 @@ SET SERVEROUTPUT ON;
 
 DECLARE
     -- Declare test input values
-    v_user_id        NUMBER := 3031;
-    v_location_id    NUMBER := 101;
-    v_user_name      VARCHAR2(100) := 'Test Donor RRRajesh';
-    v_email          VARCHAR2(100) := 'test.rajesyhdonor@example.com';
-    v_phone          VARCHAR2(15) := '98765843210';
-    v_gender         VARCHAR2(10) := 'Male';
-    v_dob            DATE := TO_DATE('1990-01-01', 'YYYY-MM-DD');
+    v_user_id        NUMBER;
+    v_location_id    NUMBER := 105;
+    v_user_name      VARCHAR2(100) := 'Rajesh'; 
+    v_email          VARCHAR2(100) := 'rajesh.kumar@example.com'; 
+    v_phone          VARCHAR2(15) := '1234345890'; 
+    v_gender         VARCHAR2(10) := 'male';
+    v_dob            DATE := TO_DATE('2000-01-01', 'YYYY-MM-DD');
     v_blood_type_id  NUMBER := 1;
     v_blood_bank_id  NUMBER := 1;
     v_user_type_id   NUMBER := 3;
@@ -17,7 +17,8 @@ BEGIN
 
     -- Call the main donation flow procedure
     donate_blood_main_flow(
-        user_id         => v_user_id,
+        user_id         => bbms_user_seq.nextval,
+        --user_id         => 4, -- for existing user
         location_id     => v_location_id,
         user_name       => v_user_name,
         email           => v_email,

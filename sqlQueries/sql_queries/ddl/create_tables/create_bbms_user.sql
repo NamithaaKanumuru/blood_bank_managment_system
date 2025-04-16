@@ -5,7 +5,7 @@ create table bbms_user (
    person_type_id number not null,
    hospital_id    number, -- Nullable, only for doctors or staff
    name           varchar2(255) not null,
-   email          varchar2(100) not null unique,
+   email          varchar2(100) not null,
    phone          varchar2(15) not null,
    gender         varchar2(10) not null,
    dob            date not null,
